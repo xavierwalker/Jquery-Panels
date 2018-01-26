@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+<head>
+  <title>jQuery Tutorial</title>
+
+<meta charset="utf-8" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body><!-- HTML content -->
+<div class="tab-panels">
+      <ul class="tabs">
+        <li rel="panel1">panel1</li>
+        <li rel="panel2">panel2</li>
+        <li rel="panel3">panel3</li>
+        <li rel="panel4">panel4</li>
+      </ul>
+
+      <div id="panel1" class="panel active">
+        content1<br>
+        content1<br>
+        content1<br>
+        content1<br>
+        content1<br>
+      </div>
+      
+      <div id="panel2" class="panel">
+        content2<br>
+        content2<br>
+        content2<br>
+        content2<br>
+        content2<br>
+      </div>
+
+      <div id="panel3" class="panel">
+        content3<br>
+        content3<br>
+        content3<br>
+        content3<br>
+        content3<br>
+      </div>
+
+      <div id="panel4" class="panel">
+        content4<br>
+        content4<br>
+        content4<br>
+        content4<br>
+        content4<br>
+      </div>      
+    </div>
+    
+<div class="tab-panels">
+      <ul class="tabs">
+        <li rel="panel5">panel5</li>
+        <li rel="panel6">panel6</li>
+        <li rel="panel7">panel7</li>
+        <li rel="panel8">panel8</li>
+      </ul>
+
+      <div id="panel5" class="panel active">
+        content5<br>
+        content5<br>
+        content5<br>
+        content5<br>
+        content5<br>
+      </div>
+      
+      <div id="panel6" class="panel">
+        content6<br>
+        content6<br>
+        content6<br>
+        content6<br>
+        content6<br>
+      </div>
+
+      <div id="panel7" class="panel">
+        content7<br>
+        content7<br>
+        content7<br>
+        content7<br>
+        content7<br>
+      </div>
+
+      <div id="panel8" class="panel">
+        content8<br>
+        content8<br>
+        content8<br>
+        content8<br>
+        content8<br>
+      </div>      
+    </div>
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+        
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <script>
+    $(function(){
+      $('.tab-panels .tabs li').on('click', function() {
+      var $panel = $(this).closest('.tab-panels');
+
+      	$panel.find('.tabs li.active').removeClass('active');
+      	$(this).addClass('active');
+
+
+      	var panelToShow = $(this).attr('rel');
+
+      	$panel.find('.panel.active').slideUp(300, showNextPanel);
+
+      	function showNextPanel() {
+      		$(this).removeClass('active');
+
+      		$('#'+panelToShow).slideDown(300, function(){
+      			$(this).addClass('active');
+      		});
+      	};
+      });
+      
+        
+
+      
+    });    
+  </script>
+</body>
+</html>
